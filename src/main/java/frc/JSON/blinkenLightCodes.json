@@ -1,0 +1,818 @@
+[
+    {
+        "Pulse Width (us)": 1005,
+        "roboRIO SPARK Value": -0.99,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Rainbow",
+        "Palette": "Rainbow",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1015,
+        "roboRIO SPARK Value": -0.97,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Rainbow",
+        "Palette": "Party",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1025,
+        "roboRIO SPARK Value": -0.95,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Rainbow",
+        "Palette": "Ocean",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1035,
+        "roboRIO SPARK Value": -0.93,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Rainbow",
+        "Palette": "Lava",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1045,
+        "roboRIO SPARK Value": -0.91,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Rainbow",
+        "Palette": "Forest",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1055,
+        "roboRIO SPARK Value": -0.89,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Rainbow with Glitter",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1065,
+        "roboRIO SPARK Value": -0.87,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Confetti",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1075,
+        "roboRIO SPARK Value": -0.85,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Shot",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1085,
+        "roboRIO SPARK Value": -0.83,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Shot",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1095,
+        "roboRIO SPARK Value": -0.81,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Shot",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1105,
+        "roboRIO SPARK Value": -0.79,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Sinelon",
+        "Palette": "Rainbow",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1115,
+        "roboRIO SPARK Value": -0.77,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Sinelon",
+        "Palette": "Party",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1125,
+        "roboRIO SPARK Value": -0.75,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Sinelon",
+        "Palette": "Ocean",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1135,
+        "roboRIO SPARK Value": -0.73,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Sinelon",
+        "Palette": "Lava",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1145,
+        "roboRIO SPARK Value": -0.71,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Sinelon",
+        "Palette": "Forest",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1155,
+        "roboRIO SPARK Value": -0.69,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Beats per Minute",
+        "Palette": "Rainbow",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1165,
+        "roboRIO SPARK Value": -0.67,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Beats per Minute",
+        "Palette": "Party",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1175,
+        "roboRIO SPARK Value": -0.65,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Beats per Minute",
+        "Palette": "Ocean",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1185,
+        "roboRIO SPARK Value": -0.63,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Beats per Minute",
+        "Palette": "Lava",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1195,
+        "roboRIO SPARK Value": -0.61,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Beats per Minute",
+        "Palette": "Forest",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1205,
+        "roboRIO SPARK Value": -0.59,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Fire",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1215,
+        "roboRIO SPARK Value": -0.57,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Fire",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1225,
+        "roboRIO SPARK Value": -0.55,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Twinkles",
+        "Palette": "Rainbow",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1235,
+        "roboRIO SPARK Value": -0.53,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Twinkles",
+        "Palette": "Party",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1245,
+        "roboRIO SPARK Value": -0.51,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Twinkles",
+        "Palette": "Ocean",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1255,
+        "roboRIO SPARK Value": -0.49,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Twinkles",
+        "Palette": "Lava",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1265,
+        "roboRIO SPARK Value": -0.47,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Twinkles",
+        "Palette": "Forest",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1275,
+        "roboRIO SPARK Value": -0.45,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Color Waves",
+        "Palette": "Rainbow",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1285,
+        "roboRIO SPARK Value": -0.43,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Color Waves",
+        "Palette": "Party",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1295,
+        "roboRIO SPARK Value": -0.41,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Color Waves",
+        "Palette": "Ocean",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1305,
+        "roboRIO SPARK Value": -0.39,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Color Waves",
+        "Palette": "Lava",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1315,
+        "roboRIO SPARK Value": -0.37,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Color Waves",
+        "Palette": "Forest",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1325,
+        "roboRIO SPARK Value": -0.35,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Larson Scanner",
+        "Palette": "Red",
+        "Pattern Adjustment 1": "Pattern Width",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1335,
+        "roboRIO SPARK Value": -0.33,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Larson Scanner",
+        "Palette": "Gray",
+        "Pattern Adjustment 1": "Pattern Width",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1345,
+        "roboRIO SPARK Value": -0.31,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Light Chase",
+        "Palette": "Red",
+        "Pattern Adjustment 1": "Dimming",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1355,
+        "roboRIO SPARK Value": -0.29,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Light Chase",
+        "Palette": "Blue",
+        "Pattern Adjustment 1": "Dimming",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1365,
+        "roboRIO SPARK Value": -0.27,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Light Chase",
+        "Palette": "Gray",
+        "Pattern Adjustment 1": "Dimming",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1375,
+        "roboRIO SPARK Value": -0.25,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Heartbeat",
+        "Palette": "Red",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1385,
+        "roboRIO SPARK Value": -0.23,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Heartbeat",
+        "Palette": "Blue",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1395,
+        "roboRIO SPARK Value": -0.21,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Heartbeat",
+        "Palette": "White",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1405,
+        "roboRIO SPARK Value": -0.19,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Heartbeat",
+        "Palette": "Gray",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1415,
+        "roboRIO SPARK Value": -0.17,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Breath",
+        "Palette": "Red",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1425,
+        "roboRIO SPARK Value": -0.15,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Breath",
+        "Palette": "Blue",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1435,
+        "roboRIO SPARK Value": -0.13,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Breath",
+        "Palette": "Gray",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1445,
+        "roboRIO SPARK Value": -0.11,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Strobe",
+        "Palette": "Red",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1455,
+        "roboRIO SPARK Value": -0.09,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Strobe",
+        "Palette": "Blue",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1465,
+        "roboRIO SPARK Value": -0.07,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Strobe",
+        "Palette": "Gold",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1475,
+        "roboRIO SPARK Value": -0.05,
+        "Pattern Type": "Fixed Palette",
+        "Pattern": "Strobe",
+        "Palette": "White",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1485,
+        "roboRIO SPARK Value": -0.03,
+        "Pattern Type": "Color 1 Pattern",
+        "Pattern": "End to End Blend to Black",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1495,
+        "roboRIO SPARK Value": -0.01,
+        "Pattern Type": "Color 1 Pattern",
+        "Pattern": "Larson Scanner",
+        "Pattern Adjustment 1": "Pattern Width",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1505,
+        "roboRIO SPARK Value": 0.01,
+        "Pattern Type": "Color 1 Pattern",
+        "Pattern": "Light Chase",
+        "Pattern Adjustment 1": "Dimming",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1515,
+        "roboRIO SPARK Value": 0.03,
+        "Pattern Type": "Color 1 Pattern",
+        "Pattern": "Heartbeat",
+        "Pattern Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1525,
+        "roboRIO SPARK Value": 0.05,
+        "Pattern Type": "Color 1 Pattern",
+        "Pattern": "Heartbeat",
+        "Pattern Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1535,
+        "roboRIO SPARK Value": 0.07,
+        "Pattern Type": "Color 1 Pattern",
+        "Pattern": "Heartbeat",
+        "Pattern Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1545,
+        "roboRIO SPARK Value": 0.09,
+        "Pattern Type": "Color 1 Pattern",
+        "Pattern": "Breath",
+        "Pattern Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1555,
+        "roboRIO SPARK Value": 0.11,
+        "Pattern Type": "Color 1 Pattern",
+        "Pattern": "Breath",
+        "Pattern Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1565,
+        "roboRIO SPARK Value": 0.13,
+        "Pattern Type": "Color 1 Pattern",
+        "Pattern": "Shot",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1575,
+        "roboRIO SPARK Value": 0.15,
+        "Pattern Type": "Color 1 Pattern",
+        "Pattern": "Strobe",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1585,
+        "roboRIO SPARK Value": 0.17,
+        "Pattern Type": "Color 2 Pattern",
+        "Pattern": "End to End Blend to Black",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1595,
+        "roboRIO SPARK Value": 0.19,
+        "Pattern Type": "Color 2 Pattern",
+        "Pattern": "Larson Scanner",
+        "Pattern Adjustment 1": "Pattern Width",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1605,
+        "roboRIO SPARK Value": 0.21,
+        "Pattern Type": "Color 2 Pattern",
+        "Pattern": "Light Chase",
+        "Pattern Adjustment 1": "Dimming",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1615,
+        "roboRIO SPARK Value": 0.23,
+        "Pattern Type": "Color 2 Pattern",
+        "Pattern": "Heartbeat",
+        "Pattern Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1625,
+        "roboRIO SPARK Value": 0.25,
+        "Pattern Type": "Color 2 Pattern",
+        "Pattern": "Heartbeat",
+        "Pattern Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1635,
+        "roboRIO SPARK Value": 0.27,
+        "Pattern Type": "Color 2 Pattern",
+        "Pattern": "Heartbeat",
+        "Pattern Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1645,
+        "roboRIO SPARK Value": 0.29,
+        "Pattern Type": "Color 2 Pattern",
+        "Pattern": "Breath",
+        "Pattern Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1655,
+        "roboRIO SPARK Value": 0.31,
+        "Pattern Type": "Color 2 Pattern",
+        "Pattern": "Breath",
+        "Pattern Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1665,
+        "roboRIO SPARK Value": 0.33,
+        "Pattern Type": "Color 2 Pattern",
+        "Pattern": "Shot",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1675,
+        "roboRIO SPARK Value": 0.35,
+        "Pattern Type": "Color 2 Pattern",
+        "Pattern": "Strobe",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1685,
+        "roboRIO SPARK Value": 0.37,
+        "Pattern Type": "Color 1 and 2 Pattern",
+        "Pattern": "Sparkle",
+        "Color 1": "Color 1 on Color 2",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1695,
+        "roboRIO SPARK Value": 0.39,
+        "Pattern Type": "Color 1 and 2 Pattern",
+        "Pattern": "Sparkle",
+        "Color 2": "Color 2 on Color 1",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1705,
+        "roboRIO SPARK Value": 0.41,
+        "Pattern Type": "Color 1 and 2 Pattern",
+        "Pattern": "Color Gradient",
+        "Color 1 and 2": "Color 1 and 2",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1715,
+        "roboRIO SPARK Value": 0.43,
+        "Pattern Type": "Color 1 and 2 Pattern",
+        "Pattern": "Beats per Minute",
+        "Color 1 and 2": "Color 1 and 2",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1725,
+        "roboRIO SPARK Value": 0.45,
+        "Pattern Type": "Color 1 and 2 Pattern",
+        "Pattern": "End to End Blend",
+        "Color 1 to 2": "Color 1 to 2",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1735,
+        "roboRIO SPARK Value": 0.47,
+        "Pattern Type": "Color 1 and 2 Pattern",
+        "Pattern": "End to End Blend",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1745,
+        "roboRIO SPARK Value": 0.49,
+        "Pattern Type": "Color 1 and 2 Pattern",
+        "Pattern": "Color 1 and Color 2 no blending",
+        "Pattern": "(Setup Pattern)",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1755,
+        "roboRIO SPARK Value": 0.51,
+        "Pattern Type": "Color 1 and 2 Pattern",
+        "Pattern": "Twinkles",
+        "Color 1 and 2": "Color 1 and 2",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1765,
+        "roboRIO SPARK Value": 0.53,
+        "Pattern Type": "Color 1 and 2 Pattern",
+        "Pattern": "Color Waves",
+        "Color 1 and 2": "Color 1 and 2",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1775,
+        "roboRIO SPARK Value": 0.55,
+        "Pattern Type": "Color 1 and 2 Pattern",
+        "Pattern": "Sinelon",
+        "Color 1 and 2": "Color 1 and 2",
+        "Pattern Adjustment 1": "Pattern Density",
+        "Adjustment 1": "Speed",
+        "Adjustment 2": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1785,
+        "roboRIO SPARK Value": 0.57,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Hot Pink",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1795,
+        "roboRIO SPARK Value": 0.59,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Dark red",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1805,
+        "roboRIO SPARK Value": 0.61,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Red",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1815,
+        "roboRIO SPARK Value": 0.63,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Red Orange",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1825,
+        "roboRIO SPARK Value": 0.65,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Orange",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1835,
+        "roboRIO SPARK Value": 0.67,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Gold",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1845,
+        "roboRIO SPARK Value": 0.69,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Yellow",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1855,
+        "roboRIO SPARK Value": 0.71,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Lawn Green",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1865,
+        "roboRIO SPARK Value": 0.73,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Lime",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1875,
+        "roboRIO SPARK Value": 0.75,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Dark Green",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1885,
+        "roboRIO SPARK Value": 0.77,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Green",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1895,
+        "roboRIO SPARK Value": 0.79,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Blue Green",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1905,
+        "roboRIO SPARK Value": 0.81,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Aqua",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1915,
+        "roboRIO SPARK Value": 0.83,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Sky Blue",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1925,
+        "roboRIO SPARK Value": 0.85,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Dark Blue",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1935,
+        "roboRIO SPARK Value": 0.87,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Blue",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1945,
+        "roboRIO SPARK Value": 0.89,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Blue Violet",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1955,
+        "roboRIO SPARK Value": 0.91,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Violet",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1965,
+        "roboRIO SPARK Value": 0.93,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "White",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1975,
+        "roboRIO SPARK Value": 0.95,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Gray",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1985,
+        "roboRIO SPARK Value": 0.97,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Dark Gray",
+        "Pattern Adjustment 1": "Brightness"
+    },
+    {
+        "Pulse Width (us)": 1995,
+        "roboRIO SPARK Value": 0.99,
+        "Pattern Type": "Solid Colors",
+        "Pattern": "Black",
+        "Pattern Adjustment 1": "Brightness"
+    }
+]
