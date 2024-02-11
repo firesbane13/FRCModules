@@ -20,6 +20,8 @@ public class LightingSubsystem extends SubsystemBase {
 
   public final SendableChooser<Lighting.Colors> lighting_chooser = new SendableChooser<>();
 
+  public Colors selectedColor;
+
   /**
    * Creates a new LightingSubsystem.
    */
@@ -67,7 +69,7 @@ public class LightingSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    Colors selectedColor = lighting_chooser.getSelected();
+    this.selectedColor = lighting_chooser.getSelected();
 
     lighting.set(selectedColor.getColorValue());
   }
