@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import edu.wpi.first.wpilibj.DriverStation;
@@ -13,12 +15,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.Lighting;
-import frc.robot.Constants.Lighting.Colors;
+import frc.lib.constants.BlinkenConstants;
+import frc.lib.constants.BlinkenConstants.Colors;
 
 public class LightingSubsystem extends SubsystemBase {
   public Spark lighting;
 
-  public final SendableChooser<Lighting.Colors> lighting_chooser = new SendableChooser<>();
+  public final SendableChooser<Colors> lighting_chooser = new SendableChooser<>();
 
   public Colors selectedColor;
 
@@ -26,13 +29,26 @@ public class LightingSubsystem extends SubsystemBase {
    * Creates a new LightingSubsystem.
    */
   public LightingSubsystem() {
+    List<Colors> colors;
+    List<String> colorList = new ArrayList<>();
+
+    // Colors to be displayed
+    colorList.add("Solid Colors");
+    colorList.add("Fixed Palette Patterns");
+    
+    // Get the colors by the type names
+    colors = Colors.getColorsByTypeNames(colorList);
+
+    // Define Blinken module, currently as a Spark motor controller Servo
     lighting = new Spark(Lighting.lightingPort);
 
-    lighting.set(Lighting.startingColor.getColorValue());
+    // Set the default color
+    lighting.set(BlinkenConstants.startingColor.getColorValue());
 
-    lighting_chooser.setDefaultOption(Lighting.startingColor.getColorName(), Lighting.startingColor);
+    // Add the colors to the SmartDashboard
+    lighting_chooser.setDefaultOption(BlinkenConstants.startingColor.getColorName(), BlinkenConstants.startingColor);
   
-    for (Colors c : Colors.values()) {
+    for (Colors c : colors) {
       lighting_chooser.addOption(c.getColorName(), c);
     }
 
