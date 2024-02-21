@@ -8,15 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
+import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.Lighting;
-import frc.lib.constants.BlinkenConstants;
-import frc.lib.constants.BlinkenConstants.Colors;
+import frc.lib.aupirates3291.constants.BlinkenConstants;
+import frc.lib.aupirates3291.constants.BlinkenConstants.Colors;
 
 public class LightingSubsystem extends SubsystemBase {
   public Spark lighting;
@@ -29,15 +33,7 @@ public class LightingSubsystem extends SubsystemBase {
    * Creates a new LightingSubsystem.
    */
   public LightingSubsystem() {
-    List<Colors> colors;
-    List<String> colorList = new ArrayList<>();
-
-    // Colors to be displayed
-    colorList.add("Solid Colors");
-    colorList.add("Fixed Palette Patterns");
-    
-    // Get the colors by the type names
-    colors = Colors.getColorsByTypeNames(colorList);
+    ShuffleboardTab tab = Shuffleboard.getTab("Lighting");
 
     // Define Blinken module, currently as a Spark motor controller Servo
     lighting = new Spark(Lighting.lightingPort);
@@ -45,6 +41,21 @@ public class LightingSubsystem extends SubsystemBase {
     // Set the default color
     lighting.set(BlinkenConstants.startingColor.getColorValue());
 
+    addColorSelector(tab);
+    
+    addOnOffToggle(tab, "Lighting On/Off");
+  }
+
+  public void addColorSelector(ShuffleboardTab tab) {
+    List<Colors> colors;
+    List<String> colorList = new ArrayList<>();
+
+    // Colors to be displayed
+    colorList.add("Solid Colors");
+    colorList.add("Fixed Palette Patterns");
+
+    colors = Colors.getColorsByTypeNames(colorList);
+    
     // Add the colors to the SmartDashboard
     lighting_chooser.setDefaultOption(BlinkenConstants.startingColor.getColorName(), BlinkenConstants.startingColor);
   
@@ -52,7 +63,19 @@ public class LightingSubsystem extends SubsystemBase {
       lighting_chooser.addOption(c.getColorName(), c);
     }
 
-    SmartDashboard.putData("Alliance", lighting_chooser);
+    // Get the colors by the type names
+    colors = Colors.getColorsByTypeNames(colorList);
+    tab.add("Color Selector", lighting_chooser)
+      .withPosition(0, 0)
+      .withSize(2, 1);
+  }
+
+  public void addOnOffToggle(ShuffleboardTab tab, String name) {
+    tab.add(name, false)
+      .withWidget(BuiltInWidgets.kToggleSwitch)
+      .withPosition(0, 1)
+      .withSize(1, 1)
+      ;
   }
 
   /**

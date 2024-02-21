@@ -2,12 +2,19 @@
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
+      "/Shuffleboard/Lighting/Color Selector": "String Chooser",
       "/SmartDashboard/Alliance": "String Chooser"
     }
   },
   "NetworkTables": {
     "transitory": {
       "Shuffleboard": {
+        "Lighting": {
+          "Lighting On": {
+            "open": true
+          },
+          "open": true
+        },
         "open": true
       },
       "SmartDashboard": {
