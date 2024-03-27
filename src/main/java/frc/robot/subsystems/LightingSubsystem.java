@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
@@ -16,16 +15,15 @@ import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.Lighting;
-import frc.lib.aupirates3291.constants.BlinkenConstants;
-import frc.lib.aupirates3291.constants.BlinkenConstants.Colors;
+import frc.lib.aupirates3291.constants.BlinkenLightning;
+import frc.lib.aupirates3291.constants.BlinkenLightning.Colors;
 
 public class LightingSubsystem extends SubsystemBase {
   public Spark lighting;
 
-  public final SendableChooser<Colors> lighting_chooser = new SendableChooser<>();
+  public final SendableChooser<Colors> lightingChooser = new SendableChooser<>();
 
   public Colors selectedColor;
 
@@ -39,11 +37,11 @@ public class LightingSubsystem extends SubsystemBase {
     lighting = new Spark(Lighting.lightingPort);
 
     // Set the default color
-    lighting.set(BlinkenConstants.startingColor.getColorValue());
+    lighting.set(BlinkenLightning.startingColor.getColorValue());
+
+    addOnOffToggle(tab, "Switch");
 
     addColorSelector(tab);
-    
-    addOnOffToggle(tab, "Lighting On/Off");
   }
 
   public void addColorSelector(ShuffleboardTab tab) {
@@ -55,27 +53,21 @@ public class LightingSubsystem extends SubsystemBase {
     colorList.add("Fixed Palette Patterns");
 
     colors = Colors.getColorsByTypeNames(colorList);
-    
+
     // Add the colors to the SmartDashboard
-    lighting_chooser.setDefaultOption(BlinkenConstants.startingColor.getColorName(), BlinkenConstants.startingColor);
-  
+    lightingChooser.setDefaultOption(BlinkenLightning.startingColor.getColorName(), BlinkenLightning.startingColor);
+
     for (Colors c : colors) {
-      lighting_chooser.addOption(c.getColorName(), c);
+      lightingChooser.addOption(c.getColorName(), c);
     }
 
     // Get the colors by the type names
-    colors = Colors.getColorsByTypeNames(colorList);
-    tab.add("Color Selector", lighting_chooser)
-      .withPosition(0, 0)
-      .withSize(2, 1);
+    tab.add("Color Selector", lightingChooser).withPosition(1, 0).withSize(2, 1);
   }
 
-  public void addOnOffToggle(ShuffleboardTab tab, String name) {
-    tab.add(name, false)
-      .withWidget(BuiltInWidgets.kToggleSwitch)
-      .withPosition(0, 1)
-      .withSize(1, 1)
-      ;
+  public void addOnOffToggle(ShuffleboardTab tab, String label) {
+    tab.add(label, false).withWidget(BuiltInWidgets.kToggleButton).withPosition(0, 0)
+        .withSize(1, 1).getEntry(label);
   }
 
   /**
@@ -108,7 +100,7 @@ public class LightingSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    this.selectedColor = lighting_chooser.getSelected();
+    this.selectedColor = lightingChooser.getSelected();
 
     lighting.set(selectedColor.getColorValue());
   }

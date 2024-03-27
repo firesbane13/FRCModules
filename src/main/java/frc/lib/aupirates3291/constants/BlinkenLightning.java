@@ -3,7 +3,7 @@ package frc.lib.aupirates3291.constants;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlinkenConstants {
+public class BlinkenLightning {
     public static enum ColorType {
       SOLIDCOLORS       ("Solid Colors"),    
       FIXEDPALETTE      ("Fixed Palette Patterns"),
