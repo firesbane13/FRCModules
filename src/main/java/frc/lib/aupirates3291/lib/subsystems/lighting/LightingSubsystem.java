@@ -46,7 +46,7 @@ public class LightingSubsystem extends SubsystemBase {
       "Switch", 
       false, 
       List.of(0, 0),  // Column, Row
-      List.of(1, 1)  // Width, Height
+      List.of(2, 1)  // Width, Height
     );
 
     addColorSelector(tab);
@@ -74,7 +74,7 @@ public class LightingSubsystem extends SubsystemBase {
       tab, 
       "Color Selector", 
       lightingChooser, 
-      List.of(1, 0),  // Column, Row
+      List.of(0, 1),  // Column, Row
       List.of(2, 1)  // Width, Height
     );
   }

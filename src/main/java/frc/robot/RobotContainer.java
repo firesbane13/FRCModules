@@ -6,9 +6,10 @@ package frc.robot;
 
 import frc.lib.aupirates3291.lib.subsystems.drivetrains.DifferentialDriveSubsystemV1;
 import frc.lib.aupirates3291.lib.subsystems.lighting.LightingSubsystem;
-
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
@@ -19,10 +20,14 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  * subsystems, commands, and trigger mappings) should be declared here.
  */
 public class RobotContainer {
-  public LightingSubsystem lightingSubsystem = new LightingSubsystem();
   public DifferentialDriveSubsystemV1 driveSubsystem = new DifferentialDriveSubsystemV1();
+  public LightingSubsystem lightingSubsystem = new LightingSubsystem();
 
   private SendableChooser<Command> chooser = new SendableChooser<>();
+    
+  // JOYSTICKS
+  private Joystick joystick00 = new Joystick(0);
+  private Joystick joystick01 = new Joystick(1);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -41,6 +46,15 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Configure the button bindings
+
+    driveSubsystem.setDefaultCommand(
+      new RunCommand(
+        () ->
+        driveSubsystem.drive(
+          joystick00.getRawAxis(1),
+          joystick01.getRawAxis(1)
+        ),
+        driveSubsystem));
   }
 
   /**

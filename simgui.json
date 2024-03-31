@@ -21,6 +21,13 @@
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
+      "/Shuffleboard/DifferentialDrive/AnalogGyro[0]": "Gyro",
+      "/Shuffleboard/DifferentialDrive/Field": "Field2d",
+      "/Shuffleboard/DifferentialDrive/Left Back Motor": "Motor Controller",
+      "/Shuffleboard/DifferentialDrive/Left Front Motor": "Motor Controller",
+      "/Shuffleboard/DifferentialDrive/Right Back Motor": "Motor Controller",
+      "/Shuffleboard/DifferentialDrive/Right Front Motor": "Motor Controller",
+      "/Shuffleboard/DifferentialDrive/Robot Angle": "Gyro",
       "/Shuffleboard/Lighting/Color Selector": "String Chooser",
       "/SmartDashboard/Alliance": "String Chooser"
     }
@@ -67,13 +74,9 @@
       "open": true
     },
     "Server": {
-      "Publishers": {
-        "open": true
-      },
       "Subscribers": {
         "open": true
-      },
-      "open": true
+      }
     },
     "visible": true
   }
