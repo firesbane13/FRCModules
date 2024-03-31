@@ -55,8 +55,6 @@ public class ShuffleboardHelper {
         List<Integer> position, // Column, Row
         List<Integer> size      // Width, Height
     ) {
-        Colors selectedColor;
-
         tab.add(name, defaultValue)
             .withWidget(BuiltInWidgets.kComboBoxChooser)
             .withPosition(position.get(0), position.get(1))
