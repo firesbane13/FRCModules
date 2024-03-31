@@ -16,10 +16,4 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
-  
-  public final static class Lighting {
-    public final static int lightingPort = 1;
-
-  }  
-
 }

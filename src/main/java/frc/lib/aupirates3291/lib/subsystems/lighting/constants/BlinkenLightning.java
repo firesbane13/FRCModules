@@ -3,7 +3,19 @@ package frc.lib.aupirates3291.lib.subsystems.lighting.constants;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.wpi.first.networktables.GenericEntry;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+
 public class BlinkenLightning {
+  public class Lighting {
+    // Suppresses default constructor, ensuring non-instantiability.
+    private Lighting() {
+    }
+
+    public static final int LIGHTING_PORT = 9;
+  }  
+
   // Suppresses default constructor, ensuring non-instantiability.
   private BlinkenLightning() {
   }
@@ -29,6 +41,7 @@ public class BlinkenLightning {
   public enum Colors {
       // Solid Colors
       OFF       (ColorType.SOLIDCOLORS, "Off", 0.99),
+      ALLIANCE  (ColorType.SOLIDCOLORS, "Alliance", 1.00),
       AQUA      (ColorType.SOLIDCOLORS, "Aqua", 0.81),
       BLUE      (ColorType.SOLIDCOLORS, "Blue", 0.87),
       BLUEGREEN (ColorType.SOLIDCOLORS, "Blue Green", 0.79),
@@ -179,6 +192,33 @@ public class BlinkenLightning {
           }
           return colorsOfTypes;
       }
+  }
+
+  /**
+   * Sets the default color of the lighting chooser.
+   * 
+   * @param lightingChooser The lighting chooser to set the default color of.
+   * @param lightingChooserEntry The lighting chooser entry to set the default color of.
+   * @param color The color to set the default color to.
+   */
+  public static void setDefaultColor(
+    SendableChooser<Colors> lightingChooser, 
+    GenericEntry lightingChooserEntry,
+    Colors color
+  ) {
+    // Set the new color in the dropdown
+    lightingChooser.setDefaultOption(color.getColorName(), color);
+
+    /**
+     *  Set the new color in the text entry.  
+     * 
+     *  NOTE: This is needed to update the Shuffleboard to reflect the new color.
+     *        Dropdowns don't seem to update selected option currently
+     */
+    lightingChooserEntry.setString(color.getColorName());
+
+    // Update the Shuffleboard to reflect chooser changes
+    Shuffleboard.update();
   }
   
   public static final Colors startingColor = Colors.OFF; 

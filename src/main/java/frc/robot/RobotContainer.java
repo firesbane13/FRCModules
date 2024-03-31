@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import frc.lib.aupirates3291.lib.subsystems.drivetrains.DifferentialDriveSubsystemV1;
 import frc.lib.aupirates3291.lib.subsystems.lighting.LightingSubsystem;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -18,9 +19,10 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  * subsystems, commands, and trigger mappings) should be declared here.
  */
 public class RobotContainer {
-  LightingSubsystem lightingSubsystem = new LightingSubsystem();
+  public LightingSubsystem lightingSubsystem = new LightingSubsystem();
+  public DifferentialDriveSubsystemV1 driveSubsystem = new DifferentialDriveSubsystemV1();
 
-  SendableChooser<Command> chooser = new SendableChooser<>();
+  private SendableChooser<Command> chooser = new SendableChooser<>();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

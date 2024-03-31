@@ -8,24 +8,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
-import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
+import edu.wpi.first.wpilibj.motorcontrol.Spark;  
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.lib.aupirates3291.helper.ShuffleboardHelper;
 import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightning;
 import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightning.Colors;
-import frc.robot.Constants.Lighting;
+import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightning.Lighting;
 
 public class LightingSubsystem extends SubsystemBase {
-  public Spark lighting;
+  private Spark lighting;
 
-  public final SendableChooser<Colors> lightingChooser = new SendableChooser<>();
-
-  public Colors selectedColor;
+  private final SendableChooser<Colors> lightingChooser = new SendableChooser<>();
+  private GenericEntry lightingChooserEntry;
+  private GenericEntry onOffToggle;
 
   /**
    * Creates a new LightingSubsystem.
@@ -34,12 +35,19 @@ public class LightingSubsystem extends SubsystemBase {
     ShuffleboardTab tab = Shuffleboard.getTab("Lighting");
 
     // Define Blinken module, currently as a Spark motor controller Servo
-    lighting = new Spark(Lighting.lightingPort);
+    lighting = new Spark(Lighting.LIGHTING_PORT);
 
     // Set the default color
     lighting.set(BlinkenLightning.startingColor.getColorValue());
 
-    addOnOffToggle(tab, "Switch");
+    // We need to return the added toggle in order to see if it is enabled or not
+    onOffToggle = ShuffleboardHelper.addOnOffToggle(
+      tab, 
+      "Switch", 
+      false, 
+      List.of(0, 0),  // Column, Row
+      List.of(1, 1)  // Width, Height
+    );
 
     addColorSelector(tab);
   }
@@ -62,12 +70,13 @@ public class LightingSubsystem extends SubsystemBase {
     }
 
     // Get the colors by the type names
-    tab.add("Color Selector", lightingChooser).withPosition(1, 0).withSize(2, 1);
-  }
-
-  public void addOnOffToggle(ShuffleboardTab tab, String label) {
-    tab.add(label, false).withWidget(BuiltInWidgets.kToggleButton).withPosition(0, 0)
-        .withSize(1, 1).getEntry(label);
+    lightingChooserEntry = ShuffleboardHelper.addChooser(
+      tab, 
+      "Color Selector", 
+      lightingChooser, 
+      List.of(1, 0),  // Column, Row
+      List.of(2, 1)  // Width, Height
+    );
   }
 
   /**
@@ -79,6 +88,8 @@ public class LightingSubsystem extends SubsystemBase {
 
   /**
    * Sets the lighting to the alliance color
+   * 
+   * NOTE: Selected alliance color only displays when the robot is enabled
    */
   public void setAllianceColor() {
     Optional<Alliance> alliance = DriverStation.getAlliance();
@@ -87,21 +98,46 @@ public class LightingSubsystem extends SubsystemBase {
     if (alliance.isPresent()) {
       if (alliance.get() == Alliance.Blue) {
         lighting.set(Colors.BLUE.getColorValue());
+        BlinkenLightning.setDefaultColor(lightingChooser, lightingChooserEntry, Colors.BLUE);
       } else if (alliance.get() == Alliance.Red) {
         lighting.set(Colors.RED.getColorValue());
+        BlinkenLightning.setDefaultColor(lightingChooser, lightingChooserEntry, Colors.RED);
       } else {
         lighting.set(Colors.OFF.getColorValue());
+        BlinkenLightning.setDefaultColor(lightingChooser, lightingChooserEntry, Colors.OFF);
       }
     } else {
       lighting.set(Colors.OFF.getColorValue());
+      BlinkenLightning.setDefaultColor(lightingChooser, lightingChooserEntry, Colors.OFF);
     }
   }
 
+
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
-    this.selectedColor = lightingChooser.getSelected();
+    // Default color
+    Colors selectedColor = Colors.OFF;
 
-    lighting.set(selectedColor.getColorValue());
+    // Check if the lighting is disabled
+    if (!onOffToggle.getBoolean(false)) {
+      // Turn off lights
+      lighting.set(selectedColor.getColorValue());
+
+      // Update display
+      BlinkenLightning.setDefaultColor(lightingChooser, lightingChooserEntry, selectedColor);
+    } else {
+      // This method will be called once per scheduler run
+      selectedColor = lightingChooser.getSelected();
+
+      // Set the lighting to the selected color
+      if (selectedColor.getColorName().equals("Alliance")) {
+        // Set the lighting to the alliance color
+        setAllianceColor();
+      } else {
+        // Set the lighting to the selected color
+        lighting.set(selectedColor.getColorValue());
+        BlinkenLightning.setDefaultColor(lightingChooser, lightingChooserEntry, selectedColor);
+      }
+    }
   }
 }

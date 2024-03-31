@@ -1,4 +1,23 @@
 {
+  "HALProvider": {
+    "Encoders": {
+      "window": {
+        "visible": true
+      }
+    },
+    "Other Devices": {
+      "AnalogGyro[0]": {
+        "header": {
+          "open": true
+        }
+      }
+    },
+    "PWM Outputs": {
+      "window": {
+        "visible": true
+      }
+    }
+  },
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
@@ -8,8 +27,20 @@
   },
   "NetworkTables": {
     "transitory": {
+      "LiveWindow": {
+        "open": true
+      },
       "Shuffleboard": {
+        "DifferentialDrive": {
+          "open": true
+        },
         "Lighting": {
+          "Color Selector": {
+            "open": true,
+            "string[]##v_/Shuffleboard/Lighting/Color Selector/options": {
+              "open": true
+            }
+          },
           "Lighting On": {
             "open": true
           },
@@ -29,6 +60,21 @@
     }
   },
   "NetworkTables Info": {
+    "Clients": {
+      "open": true
+    },
+    "Connections": {
+      "open": true
+    },
+    "Server": {
+      "Publishers": {
+        "open": true
+      },
+      "Subscribers": {
+        "open": true
+      },
+      "open": true
+    },
     "visible": true
   }
 }
