@@ -6,7 +6,7 @@ import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightning.Colors;
+import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightningConstants.Colors;
 
 public class ShuffleboardHelper {
     // Suppresses default constructor, ensuring non-instantiability.

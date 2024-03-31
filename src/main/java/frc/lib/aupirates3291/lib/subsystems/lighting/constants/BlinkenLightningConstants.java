@@ -7,7 +7,7 @@ import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
-public class BlinkenLightning {
+public class BlinkenLightningConstants {
   public class Lighting {
     // Suppresses default constructor, ensuring non-instantiability.
     private Lighting() {
@@ -17,7 +17,7 @@ public class BlinkenLightning {
   }  
 
   // Suppresses default constructor, ensuring non-instantiability.
-  private BlinkenLightning() {
+  private BlinkenLightningConstants() {
   }
 
   public enum ColorType {

@@ -17,9 +17,9 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.lib.aupirates3291.helper.ShuffleboardHelper;
-import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightning;
-import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightning.Colors;
-import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightning.Lighting;
+import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightningConstants;
+import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightningConstants.Colors;
+import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightningConstants.Lighting;
 
 public class LightingSubsystem extends SubsystemBase {
   private Spark lighting;
@@ -38,7 +38,7 @@ public class LightingSubsystem extends SubsystemBase {
     lighting = new Spark(Lighting.LIGHTING_PORT);
 
     // Set the default color
-    lighting.set(BlinkenLightning.startingColor.getColorValue());
+    lighting.set(BlinkenLightningConstants.startingColor.getColorValue());
 
     // We need to return the added toggle in order to see if it is enabled or not
     onOffToggle = ShuffleboardHelper.addOnOffToggle(
@@ -63,7 +63,7 @@ public class LightingSubsystem extends SubsystemBase {
     colors = Colors.getColorsByTypeNames(colorList);
 
     // Add the colors to the SmartDashboard
-    lightingChooser.setDefaultOption(BlinkenLightning.startingColor.getColorName(), BlinkenLightning.startingColor);
+    lightingChooser.setDefaultOption(BlinkenLightningConstants.startingColor.getColorName(), BlinkenLightningConstants.startingColor);
 
     for (Colors c : colors) {
       lightingChooser.addOption(c.getColorName(), c);
@@ -98,17 +98,17 @@ public class LightingSubsystem extends SubsystemBase {
     if (alliance.isPresent()) {
       if (alliance.get() == Alliance.Blue) {
         lighting.set(Colors.BLUE.getColorValue());
-        BlinkenLightning.setDefaultColor(lightingChooser, lightingChooserEntry, Colors.BLUE);
+        BlinkenLightningConstants.setDefaultColor(lightingChooser, lightingChooserEntry, Colors.BLUE);
       } else if (alliance.get() == Alliance.Red) {
         lighting.set(Colors.RED.getColorValue());
-        BlinkenLightning.setDefaultColor(lightingChooser, lightingChooserEntry, Colors.RED);
+        BlinkenLightningConstants.setDefaultColor(lightingChooser, lightingChooserEntry, Colors.RED);
       } else {
         lighting.set(Colors.OFF.getColorValue());
-        BlinkenLightning.setDefaultColor(lightingChooser, lightingChooserEntry, Colors.OFF);
+        BlinkenLightningConstants.setDefaultColor(lightingChooser, lightingChooserEntry, Colors.OFF);
       }
     } else {
       lighting.set(Colors.OFF.getColorValue());
-      BlinkenLightning.setDefaultColor(lightingChooser, lightingChooserEntry, Colors.OFF);
+      BlinkenLightningConstants.setDefaultColor(lightingChooser, lightingChooserEntry, Colors.OFF);
     }
   }
 
@@ -124,7 +124,7 @@ public class LightingSubsystem extends SubsystemBase {
       lighting.set(selectedColor.getColorValue());
 
       // Update display
-      BlinkenLightning.setDefaultColor(lightingChooser, lightingChooserEntry, selectedColor);
+      BlinkenLightningConstants.setDefaultColor(lightingChooser, lightingChooserEntry, selectedColor);
     } else {
       // This method will be called once per scheduler run
       selectedColor = lightingChooser.getSelected();
@@ -136,7 +136,7 @@ public class LightingSubsystem extends SubsystemBase {
       } else {
         // Set the lighting to the selected color
         lighting.set(selectedColor.getColorValue());
-        BlinkenLightning.setDefaultColor(lightingChooser, lightingChooserEntry, selectedColor);
+        BlinkenLightningConstants.setDefaultColor(lightingChooser, lightingChooserEntry, selectedColor);
       }
     }
   }
