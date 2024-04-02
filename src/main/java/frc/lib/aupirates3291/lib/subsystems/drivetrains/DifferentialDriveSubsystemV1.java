@@ -25,37 +25,37 @@ import edu.wpi.first.wpilibj.simulation.EncoderSim;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.lib.aupirates3291.constants.RobotConstants;
+import frc.lib.aupirates3291.constants.Ports.PORTLIST;
 import frc.lib.aupirates3291.helper.ShuffleboardHelper;
 import frc.lib.aupirates3291.lib.subsystems.drivetrains.constants.DifferentialDriveConstants.*;
-import frc.robot.RobotContainer;
 
 public class DifferentialDriveSubsystemV1 extends SubsystemBase {
-  private Spark leftFrontMotor  = new Spark(DriveMotors.K_LEFT_FRONT_MOTOR_PORT);
-  private Spark leftBackMotor   = new Spark(DriveMotors.K_LEFT_BACK_MOTOR_PORT);
-  private Spark rightFrontMotor = new Spark(DriveMotors.K_RIGHT_FRONT_MOTOR_PORT);
-  private Spark rightBackMotor  = new Spark(DriveMotors.K_RIGHT_BACK_MOTOR_PORT);
+  private Spark leftFrontMotor  = new Spark(PORTLIST.DRIVE_LEFT_FRONT_MOTOR.getPort());
+  private Spark leftBackMotor   = new Spark(PORTLIST.DRIVE_LEFT_BACK_MOTOR.getPort());
+  private Spark rightFrontMotor = new Spark(PORTLIST.DRIVE_RIGHT_FRONT_MOTOR.getPort());
+  private Spark rightBackMotor  = new Spark(PORTLIST.DRIVE_RIGHT_BACK_MOTOR.getPort());
 
   private List<Spark> leftMotors  = new ArrayList<>();
   private List<Spark> rightMotors = new ArrayList<>();
 
   private Encoder leftFrontEncoder = new Encoder(
-      DriveEncoders.K_LEFT_FRONT_ENCODER_PORT_A,
-      DriveEncoders.K_LEFT_FRONT_ENCODER_PORT_B
+      PORTLIST.ENCODER_LEFT_FRONT_A.getPort(),
+      PORTLIST.ENCODER_LEFT_FRONT_B.getPort()
   );
   private Encoder leftBackEncoder = new Encoder(
-      DriveEncoders.K_LEFT_BACK_ENCODER_PORT_A,
-      DriveEncoders.K_LEFT_BACK_ENCODER_PORT_B
+      PORTLIST.ENCODER_LEFT_BACK_A.getPort(),
+      PORTLIST.ENCODER_LEFT_BACK_B.getPort()
   );
   private Encoder rightFrontEncoder = new Encoder(
-      DriveEncoders.K_RIGHT_FRONT_ENCODER_PORT_A,
-      DriveEncoders.K_RIGHT_FRONT_ENCODER_PORT_B
+      PORTLIST.ENCODER_RIGHT_FRONT_A.getPort(),
+      PORTLIST.ENCODER_RIGHT_FRONT_B.getPort()
   );
   private Encoder rightBackEncoder = new Encoder(
-      DriveEncoders.K_RIGHT_BACK_ENCODER_PORT_A,
-      DriveEncoders.K_RIGHT_BACK_ENCODER_PORT_B
+      PORTLIST.ENCODER_RIGHT_BACK_A.getPort(),
+      PORTLIST.ENCODER_RIGHT_BACK_B.getPort()
   );
 
-  private AnalogGyro gyro = new AnalogGyro(DriveGyro.K_GYRO_PORT);
+  private AnalogGyro gyro = new AnalogGyro(PORTLIST.DRIVE_GYROSCOPE.getPort());
 
   private DifferentialDriveOdometry odometry;
 

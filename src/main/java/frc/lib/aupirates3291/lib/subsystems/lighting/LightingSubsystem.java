@@ -16,10 +16,10 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.lib.aupirates3291.constants.Ports.PORTLIST;
 import frc.lib.aupirates3291.helper.ShuffleboardHelper;
 import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightningConstants;
 import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightningConstants.Colors;
-import frc.lib.aupirates3291.lib.subsystems.lighting.constants.BlinkenLightningConstants.Lighting;
 
 public class LightingSubsystem extends SubsystemBase {
   private Spark lighting;
@@ -35,7 +35,7 @@ public class LightingSubsystem extends SubsystemBase {
     ShuffleboardTab tab = Shuffleboard.getTab("Lighting");
 
     // Define Blinken module, currently as a Spark motor controller Servo
-    lighting = new Spark(Lighting.LIGHTING_PORT);
+    lighting = new Spark(PORTLIST.LIGHTING_PORT.getPort());
 
     // Set the default color
     lighting.set(BlinkenLightningConstants.startingColor.getColorValue());

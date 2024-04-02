@@ -8,14 +8,6 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 public class BlinkenLightningConstants {
-  public class Lighting {
-    // Suppresses default constructor, ensuring non-instantiability.
-    private Lighting() {
-    }
-
-    public static final int LIGHTING_PORT = 9;
-  }  
-
   // Suppresses default constructor, ensuring non-instantiability.
   private BlinkenLightningConstants() {
   }

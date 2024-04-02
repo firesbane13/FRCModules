@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import frc.lib.aupirates3291.constants.Ports.PORTLIST;
 import frc.lib.aupirates3291.lib.subsystems.drivetrains.DifferentialDriveSubsystemV1;
 import frc.lib.aupirates3291.lib.subsystems.lighting.LightingSubsystem;
 import edu.wpi.first.wpilibj.Joystick;
@@ -26,8 +27,8 @@ public class RobotContainer {
   private SendableChooser<Command> chooser = new SendableChooser<>();
     
   // JOYSTICKS
-  private Joystick joystick00 = new Joystick(0);
-  private Joystick joystick01 = new Joystick(1);
+  private Joystick joystick00 = new Joystick(PORTLIST.PRIMARY_CONTROLLER.getPort());
+  private Joystick joystick01 = new Joystick(PORTLIST.SECONDARY_CONTROLLER.getPort());
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
