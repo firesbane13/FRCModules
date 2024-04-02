@@ -18,10 +18,9 @@
   {
     "name": "/Shuffleboard/Lighting/Switch",
     "type": "boolean",
-    "value": true,
+    "value": false,
     "properties": {
-      "persistent": true,
-      "retained": true
+      "persistent": true
     }
   }
 ]

@@ -33,6 +33,17 @@
     }
   },
   "NetworkTables": {
+    "persistent": {
+      "Shuffleboard": {
+        "DifferentialDrive": {
+          "open": true
+        },
+        "Lighting": {
+          "open": true
+        },
+        "open": true
+      }
+    },
     "transitory": {
       "LiveWindow": {
         "open": true
