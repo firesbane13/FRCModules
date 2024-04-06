@@ -12,6 +12,7 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.DifferentialDriveOdometry;
 import edu.wpi.first.math.system.plant.DCMotor;
+import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
@@ -77,6 +78,8 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
   private Boolean lastLeftInverted = DriveMotors.K_LEFT_MOTORS_INVERTED;
   private Boolean lastRightInverted = DriveMotors.K_RIGHT_MOTORS_INVERTED;
 
+  private TrajectoryGenerator trajectoryGenerator;
+
   private Field2d field2d = new Field2d();
 
   /**
@@ -103,7 +106,7 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
       )
     );
 
-    field2d.setRobotPose(odometry.getPoseMeters());
+    // field2d.setRobotPose(odometry.getPoseMeters());
 
     shuffleboardDataInitialization();
   }
@@ -298,7 +301,7 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
     gyroSim = new AnalogGyroSim(gyro);
   }
 
-  public void simulationPeriodic() {
+  public void drivetrainSimulationPeriodic() {
     drivetrainSim.setInputs(
       leftFrontMotor.get() * RobotController.getInputVoltage(),
       rightFrontMotor.get() * RobotController.getInputVoltage()

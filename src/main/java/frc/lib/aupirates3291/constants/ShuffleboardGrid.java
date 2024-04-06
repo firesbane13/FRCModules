@@ -17,40 +17,188 @@ public class ShuffleboardGrid {
     }
 
     public enum ShuffleboardTypes {
-        K3_AXIS_ACCELEROMETER("k3AxisAccelerometer"),
-        K_ACCELEROMETER("kAccelerometer"),
-        K_BOOLEAN_BOX("kBooleanBox"),
-        K_CAMERA_STREAM("kCameraStream"),
-        K_COMBO_BOX("kComboBox"),
-        K_COMMAND("kCommand"),
-        K_DIAL("kDial"),
-        K_DIFFERENTIAL_DRIVE("kDifferentialDrive"),
-        K_ENCODER("kEncoder"),
-        K_FIELD("kField"),
-        K_GRAPH("kGraph"),
-        K_GYRO("kGyro"),
-        K_MECANUM_DRIVE("kMecanumDrive"),
-        K_MOTOR_CONTROLLER("kMotorController"),
-        K_NUMBER_BAR("kNumberBar"),
-        K_NUMBER_SLIDER("kNumberSlider"),
-        K_PID_COMMAND("kPIDCommand"),
-        K_PID_CONTROLLER("kPIDController"),
-        K_POWER_DISTRIBUTION("kPowerDistribution"),
-        K_RELAY("kRelay"),
-        K_SPLIT_BUTTON_CHOOSER("kSplitButtonChooser"),
-        K_TEXT_VIEW("kTextView"),
-        K_TOGGLE_BUTTON("kToggleButton"),
-        K_TOGGLE_SWITCH("kToggleSwitch"),
-        K_VOLTAGE("kVoltage");
+        K3_AXIS_ACCELEROMETER(
+            "k3AxisAccelerometer", 
+            1, 
+            1, 
+            false
+        ),
+        K_ACCELEROMETER(
+            "kAccelerometer", 
+            1, 
+            1, 
+            false
+        ),
+        K_BOOLEAN_BOX(
+            "kBooleanBox", 
+            1, 
+            1, 
+            false
+        ),
+        K_CAMERA_STREAM(
+            "kCameraStream", 
+            1, 
+            1, 
+            false
+        ),
+        K_COMBO_BOX(
+            "kComboBox", 
+            1, 
+            1, 
+            false
+        ),
+        K_COMMAND(
+            "kCommand", 
+            1, 
+            1, 
+            false
+        ),
+        K_DIAL(
+            "kDial", 
+            1, 
+            1, 
+            false),
+        K_DIFFERENTIAL_DRIVE(
+            "kDifferentialDrive", 
+            1, 
+            1, 
+            false
+        ),
+        K_ENCODER(
+            "kEncoder", 
+            1, 
+            1, 
+            false
+        ),
+        K_FIELD(
+            "kField", 
+            1, 
+            1, 
+            false
+        ),
+        K_GRAPH(
+            "kGraph", 
+            1, 
+            1, 
+            false
+        ),
+        K_GYRO(
+            "kGyro", 
+            1, 
+            1, 
+            false
+        ),
+        K_MECANUM_DRIVE(
+            "kMecanumDrive", 
+            1, 
+            1, 
+            false
+        ),
+        K_MOTOR_CONTROLLER(
+            "kMotorController", 
+            2, 
+            1, 
+            false
+        ),
+        K_NUMBER_BAR(
+            "kNumberBar", 
+            1, 
+            1, 
+            false
+        ),
+        K_NUMBER_SLIDER(
+            "kNumberSlider", 
+            1, 
+            1, 
+            false
+        ),
+        K_PID_COMMAND(
+            "kPIDCommand", 
+            1, 
+            1, 
+            false
+        ),
+        K_PID_CONTROLLER(
+            "kPIDController", 
+            1, 
+            1, 
+            false
+        ),
+        K_POWER_DISTRIBUTION(
+            "kPowerDistribution", 
+            1, 
+            1, 
+            false
+        ),
+        K_RELAY(
+            "kRelay", 
+            1, 
+            1, 
+            false
+        ),
+        K_SPLIT_BUTTON_CHOOSER(
+            "kSplitButtonChooser", 
+            1, 
+            1, 
+            false
+        ),
+        K_TEXT_VIEW(
+            "kTextView", 
+            1, 
+            1, 
+            false
+        ),
+        K_TOGGLE_BUTTON(
+            "kToggleButton", 
+            1, 
+            1, 
+            true
+        ),
+        K_TOGGLE_SWITCH(
+            "kToggleSwitch", 
+            1, 
+            1, 
+            true
+        ),
+        K_VOLTAGE(
+            "kVoltageView", 
+            1, 
+            1, 
+            false
+        ),
+        SIMPLE(
+            "Simple", 
+            1, 
+            1, 
+            true
+        );
 
         private String typeName;
+        private int defaultWidth;
+        private int defaultHeight;
+        private Boolean isEditable;
 
-        ShuffleboardTypes(String typeName) {
+        ShuffleboardTypes(String typeName, int defaultWidth, int defaultHeight, Boolean isEditable) {
             this.typeName = typeName;
+            this.defaultWidth = defaultWidth;
+            this.defaultHeight = defaultHeight;
+            this.isEditable = isEditable;
         }
 
         public String getTypeName() {
             return typeName;
+        }
+
+        public int getDefaultWidth() {
+            return defaultWidth;
+        }
+
+        public int getDefaultHeight() {
+            return defaultHeight;
+        }
+
+        public Boolean getIsEditable() {
+            return isEditable;
         }
     }
     
@@ -60,28 +208,24 @@ public class ShuffleboardGrid {
             Tabs.DIFFERENTIAL_DRIVE_TAB, 
             ShuffleboardTypes.K_MOTOR_CONTROLLER, 
             "Left Front", 
-            0, 0, 
-            1, 1
+            0, 0
         ),
         DIFFERENTIAL_DRIVE_LEFT_BACK(
             Tabs.DIFFERENTIAL_DRIVE_TAB, 
             ShuffleboardTypes.K_MOTOR_CONTROLLER, 
             "Left Back", 
-            0, 1, 
-            1, 1
+            0, 1
         ),
         DIFFERENTIAL_DRIVE_RIGHT_FRONT(
             Tabs.DIFFERENTIAL_DRIVE_TAB, 
             ShuffleboardTypes.K_MOTOR_CONTROLLER, 
             "Right Front", 
-            1, 0, 
-            1, 1
+            1, 0
         ),
         DIFFERENTIAL_DRIVE_RIGHT_BACK(
             Tabs.DIFFERENTIAL_DRIVE_TAB, 
             ShuffleboardTypes.K_MOTOR_CONTROLLER, 
             "Right Back", 
-            1, 1, 
             1, 1
         )
         ;
@@ -91,17 +235,13 @@ public class ShuffleboardGrid {
         private String name;
         private int row;
         private int column;
-        private int width;
-        private int height;
 
-        GridLocation(Tabs tab, ShuffleboardTypes type, String name, int row, int column, int width, int height) {
+        GridLocation(Tabs tab, ShuffleboardTypes type, String name, int row, int column) {
             this.tab = tab;
             this.type = type;
             this.name = name;
             this.row = row;
             this.column = column;
-            this.width = width;
-            this.height = height;
         }
 
         public Tabs getTab() {
@@ -122,14 +262,6 @@ public class ShuffleboardGrid {
         
         public int getColumn() {
             return column;
-        }
-
-        public int getWidth() {
-            return width;
-        }
-
-        public int getHeight() {
-            return height;
         }
     }
 }

@@ -1,0 +1,42 @@
+{
+  "NetworkTables": {
+    "transitory": {
+      "Shuffleboard": {
+        "DifferentialDrive": {
+          "open": true
+        },
+        "open": true
+      }
+    },
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/Shuffleboard/DifferentialDrive/Field": "Field2d",
+      "/Shuffleboard/DifferentialDrive/Left Back Motor": "Motor Controller",
+      "/Shuffleboard/DifferentialDrive/Left Front Motor": "Motor Controller",
+      "/Shuffleboard/DifferentialDrive/Right Back Motor": "Motor Controller",
+      "/Shuffleboard/DifferentialDrive/Right Front Motor": "Motor Controller",
+      "/Shuffleboard/DifferentialDrive/Robot Angle": "Gyro",
+      "/Shuffleboard/Lighting/Color Selector": "String Chooser"
+    },
+    "windows": {
+      "/Shuffleboard/DifferentialDrive/Field": {
+        "bottom": 1476,
+        "height": 8.210550308227539,
+        "left": 150,
+        "right": 2961,
+        "top": 79,
+        "width": 16.541748046875,
+        "window": {
+          "visible": true
+        }
+      }
+    }
+  },
+  "NetworkTables Info": {
+    "visible": true
+  },
+  "NetworkTables Settings": {
+    "mode": "Client (NT4)",
+    "serverTeam": "127.0.0.1"
+  }
+}
