@@ -2,15 +2,16 @@
   {
     "name": "/Shuffleboard/DifferentialDrive/Left Inverted",
     "type": "boolean",
-    "value": true,
+    "value": false,
     "properties": {
-      "persistent": true
+      "persistent": true,
+      "retained": true
     }
   },
   {
     "name": "/Shuffleboard/DifferentialDrive/Right Inverted",
     "type": "boolean",
-    "value": false,
+    "value": true,
     "properties": {
       "persistent": true
     }
@@ -18,9 +19,10 @@
   {
     "name": "/Shuffleboard/Lighting/Switch",
     "type": "boolean",
-    "value": false,
+    "value": true,
     "properties": {
-      "persistent": true
+      "persistent": true,
+      "retained": true
     }
   }
 ]

@@ -4,7 +4,8 @@
     "type": "boolean",
     "value": true,
     "properties": {
-      "persistent": true
+      "persistent": true,
+      "retained": true
     }
   },
   {

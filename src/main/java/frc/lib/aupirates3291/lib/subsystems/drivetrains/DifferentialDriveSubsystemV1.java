@@ -10,9 +10,14 @@ import java.util.List;
 import edu.wpi.first.math.VecBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
 import edu.wpi.first.math.kinematics.DifferentialDriveOdometry;
 import edu.wpi.first.math.system.plant.DCMotor;
+import edu.wpi.first.math.trajectory.Trajectory;
+import edu.wpi.first.math.trajectory.TrajectoryConfig;
 import edu.wpi.first.math.trajectory.TrajectoryGenerator;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
@@ -78,7 +83,7 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
   private Boolean lastLeftInverted = DriveMotors.K_LEFT_MOTORS_INVERTED;
   private Boolean lastRightInverted = DriveMotors.K_RIGHT_MOTORS_INVERTED;
 
-  private TrajectoryGenerator trajectoryGenerator;
+  private Trajectory trajectory;
 
   private Field2d field2d = new Field2d();
 
@@ -106,7 +111,14 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
       )
     );
 
-    // field2d.setRobotPose(odometry.getPoseMeters());
+    trajectory = TrajectoryGenerator.generateTrajectory(
+            new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
+            List.of(new Translation2d(1, 1), new Translation2d(2, -1)),
+            new Pose2d(3, 0, Rotation2d.fromDegrees(0)),
+            new TrajectoryConfig(Units.feetToMeters(3.0), Units.feetToMeters(3.0)));
+
+    field2d.getObject("field_Traj").setTrajectory(trajectory);
+    field2d.setRobotPose(odometry.getPoseMeters());
 
     shuffleboardDataInitialization();
   }
@@ -115,13 +127,8 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
   public void periodic() {
     Boolean leftInverted = leftInvertedToggle.getBoolean(DriveMotors.K_LEFT_MOTORS_INVERTED);
     Boolean rightInverted = rightInvertedToggle.getBoolean(DriveMotors.K_RIGHT_MOTORS_INVERTED);
-    Rotation2d gyroAngle = gyro.getRotation2d();
 
-    odometry.update(
-      gyroAngle,
-      leftFrontEncoder.getDistance(),
-      rightFrontEncoder.getDistance()
-    );
+    updateOdometry();
 
     field2d.setRobotPose(odometry.getPoseMeters());
 
@@ -322,5 +329,23 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
     rightBackEncoderSim.setRate(drivetrainSim.getRightVelocityMetersPerSecond());
 
     gyroSim.setAngle(-drivetrainSim.getHeading().getDegrees());
+  }
+
+  /** Update robot odometry. */
+  public void updateOdometry() {
+    odometry.update(
+        gyro.getRotation2d(), leftFrontEncoder.getDistance(), rightFrontEncoder.getDistance());
+  }
+
+  /** Resets robot odometry. */
+  public void resetOdometry(Pose2d pose) {
+    drivetrainSim.setPose(pose);
+    odometry.resetPosition(
+        gyro.getRotation2d(), leftFrontEncoder.getDistance(), rightFrontEncoder.getDistance(), pose);
+  }
+
+  /** Check the current robot pose. */
+  public Pose2d getPose() {
+    return odometry.getPoseMeters();
   }
 }
