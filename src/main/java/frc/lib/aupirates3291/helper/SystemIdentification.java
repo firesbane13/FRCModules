@@ -98,20 +98,30 @@ public class SystemIdentification {
      * @param testType The type of test to run
      * @param direction The direction to run the test
      */
-    public Command identificationTest(TestType testType, Direction direction) {
-        Command command = null; 
+    private Command identificationTest(TestType testType, Direction direction) {
+        Command command = new Command() {
+            @Override
+            public void execute() {
+                // Empty method
+            }
+
+            @Override
+            public boolean isFinished() {
+                return true;
+            }
+        }; 
 
         if (testType == TestType.QUASI_STATIC) {
             if (direction == Direction.FORWARD) {
-                routine.quasistatic(SysIdRoutine.Direction.kForward);
+                command = routine.quasistatic(SysIdRoutine.Direction.kForward);
             } else if (direction == Direction.REVERSE) {
-                routine.quasistatic(SysIdRoutine.Direction.kReverse);
+                command = routine.quasistatic(SysIdRoutine.Direction.kReverse);
             }
         } else if (testType == TestType.DYNAMIC) {
             if (direction == Direction.FORWARD) {
-                routine.dynamic(SysIdRoutine.Direction.kForward);
+                command = routine.dynamic(SysIdRoutine.Direction.kForward);
             } else if (direction == Direction.REVERSE) {
-                routine.dynamic(SysIdRoutine.Direction.kReverse);
+                command = routine.dynamic(SysIdRoutine.Direction.kReverse);
             }
         }
 

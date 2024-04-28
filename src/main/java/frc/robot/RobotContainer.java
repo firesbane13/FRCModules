@@ -34,6 +34,8 @@ public class RobotContainer {
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    systemIdentification.identficationInit(driveSubsystem);
+
     lightingSubsystem.init();
 
     // Configure the trigger bindings
@@ -60,7 +62,7 @@ public class RobotContainer {
         () ->
         driveSubsystem.drive(
           controller00.getRawAxis(1),
-          controller00.getRawAxis(5)
+          controller01.getRawAxis(1)
         ),
         driveSubsystem));
   }
