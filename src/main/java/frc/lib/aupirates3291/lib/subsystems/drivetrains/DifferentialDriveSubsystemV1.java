@@ -4,21 +4,24 @@
 
 package frc.lib.aupirates3291.lib.subsystems.drivetrains;
 
+import static edu.wpi.first.units.Units.Meters;
+import static edu.wpi.first.units.Units.MetersPerSecond;
+import static edu.wpi.first.units.Units.Volts;
+import static edu.wpi.first.units.MutableMeasure.mutable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.wpi.first.math.VecBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
-import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
 import edu.wpi.first.math.kinematics.DifferentialDriveOdometry;
 import edu.wpi.first.math.system.plant.DCMotor;
-import edu.wpi.first.math.trajectory.Trajectory;
-import edu.wpi.first.math.trajectory.TrajectoryConfig;
-import edu.wpi.first.math.trajectory.TrajectoryGenerator;
-import edu.wpi.first.math.util.Units;
 import edu.wpi.first.networktables.GenericEntry;
+import edu.wpi.first.units.Distance;
+import edu.wpi.first.units.MutableMeasure;
+import edu.wpi.first.units.Velocity;
+import edu.wpi.first.units.Voltage;
 import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotController;
@@ -29,6 +32,7 @@ import edu.wpi.first.wpilibj.simulation.AnalogGyroSim;
 import edu.wpi.first.wpilibj.simulation.DifferentialDrivetrainSim;
 import edu.wpi.first.wpilibj.simulation.EncoderSim;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
+import edu.wpi.first.wpilibj.sysid.SysIdRoutineLog;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.lib.aupirates3291.constants.RobotConstants;
 import frc.lib.aupirates3291.constants.Ports.PORTLIST;
@@ -76,14 +80,12 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
   private AnalogGyroSim gyroSim;
 
   // Shuffleboard
-  private ShuffleboardTab tab;
   private GenericEntry leftInvertedToggle;
   private GenericEntry rightInvertedToggle;
+  private GenericEntry poseEntry;
 
   private Boolean lastLeftInverted = DriveMotors.K_LEFT_MOTORS_INVERTED;
   private Boolean lastRightInverted = DriveMotors.K_RIGHT_MOTORS_INVERTED;
-
-  private Trajectory trajectory;
 
   private Field2d field2d = new Field2d();
 
@@ -111,13 +113,6 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
       )
     );
 
-    trajectory = TrajectoryGenerator.generateTrajectory(
-            new Pose2d(0, 0, Rotation2d.fromDegrees(0)),
-            List.of(new Translation2d(1, 1), new Translation2d(2, -1)),
-            new Pose2d(3, 0, Rotation2d.fromDegrees(0)),
-            new TrajectoryConfig(Units.feetToMeters(3.0), Units.feetToMeters(3.0)));
-
-    field2d.getObject("field_Traj").setTrajectory(trajectory);
     field2d.setRobotPose(odometry.getPoseMeters());
 
     shuffleboardDataInitialization();
@@ -154,10 +149,19 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
       setInverted(leftMotors, this.lastLeftInverted);
       setInverted(rightMotors, rightInverted);
     }
+
+    poseEntry.setString(odometry.getPoseMeters().toString());
   }
 
   private void shuffleboardDataInitialization() {
-    tab = Shuffleboard.getTab("DifferentialDrive");
+    ShuffleboardTab tab = Shuffleboard.getTab("DifferentialDrive");
+    tab.add("field", field2d);
+
+    poseEntry = tab.add("Pose", odometry.getPoseMeters().toString())
+      .withWidget("Field2d")
+      .withPosition(0, 0)
+      .withSize(4, 3)
+      .getEntry();
 
     // Used to track state of the toggle
     leftInvertedToggle = ShuffleboardHelper.addOnOffToggle(
@@ -248,7 +252,7 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
       List.of(6, 1), // Column, Row
       List.of(2, 1) // Width, Height
     );
-
+    
     ShuffleboardHelper.addField(
       tab,
       "Field",
@@ -256,6 +260,7 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
       List.of(2, 2), // Column, Row
       List.of(4, 3) // Width, Height
     );
+    
   }
 
   /**
@@ -284,6 +289,59 @@ public class DifferentialDriveSubsystemV1 extends SubsystemBase {
     for (Spark motor : rightMotors) {
       motor.set(rightSpeed);
     }
+  }
+
+  /**
+   * Drive the robot using tank drive
+   * 
+   * @param leftVoltage  Voltage of the left side of the robot
+   * @param rightVoltage Voltage of the right side of the robot
+   */
+  public void voltageDrive(double leftVoltage, double rightVoltage) {
+    for (Spark motor : leftMotors) {
+      motor.setVoltage(leftVoltage);
+    }
+
+    for (Spark motor : rightMotors) {
+      motor.setVoltage(rightVoltage);
+    }
+  }
+
+  public void logDrive(SysIdRoutineLog log) {
+    // Mutable holder for unit-safe voltage values, persisted to avoid reallocation.
+    MutableMeasure<Voltage> appliedVoltage = mutable(Volts.of(0));
+      
+    // Mutable holder for unit-safe linear distance values, persisted to avoid reallocation.
+    MutableMeasure<Distance> distance = mutable(Meters.of(0));
+      
+    // Mutable holder for unit-safe linear velocity values, persisted to avoid reallocation.
+    MutableMeasure<Velocity<Distance>> velocity = mutable(MetersPerSecond.of(0));
+
+    // Record a frame for the left motors.  Since these share an encoder, we consider
+    // the entire group to be one motor.
+    log.motor("drive-left")
+        .voltage(
+          appliedVoltage.mut_replace(
+            leftMotors.get(0).get() * RobotController.getBatteryVoltage(), 
+            Volts
+          )
+        )
+        .linearPosition(distance.mut_replace(leftFrontEncoder.getDistance(), Meters))
+        .linearVelocity(
+            velocity.mut_replace(leftFrontEncoder.getRate(), MetersPerSecond));
+
+    // Record a frame for the right motors.  Since these share an encoder, we consider
+    // the entire group to be one motor.
+    log.motor("drive-right")
+        .voltage(
+          appliedVoltage.mut_replace(
+            rightMotors.get(0).get() * RobotController.getBatteryVoltage(), 
+            Volts
+          )
+        )
+        .linearPosition(distance.mut_replace(rightFrontEncoder.getDistance(), Meters))
+        .linearVelocity(
+            velocity.mut_replace(rightFrontEncoder.getRate(), MetersPerSecond));
   }
 
   /**

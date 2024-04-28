@@ -7,11 +7,14 @@ import edu.wpi.first.networktables.GenericEntry;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
-public class BlinkenLightningConstants {
+public class BlinkenLightingConstants {
   // Suppresses default constructor, ensuring non-instantiability.
-  private BlinkenLightningConstants() {
+  private BlinkenLightingConstants() {
   }
 
+  /**
+   * Enum for the different types of colors.
+   */
   public enum ColorType {
     SOLIDCOLORS       ("Solid Colors"),    
     FIXEDPALETTE      ("Fixed Palette Patterns"),
@@ -21,15 +24,28 @@ public class BlinkenLightningConstants {
 
     public final String colorTypeName;
 
+    /**
+     * Constructor for the ColorType enum.
+     * 
+     * @param colorTypeName The name of the color type.
+     */
     ColorType(String colorTypeName) {
       this.colorTypeName = colorTypeName;
     }
 
+    /**
+     * Gets the name of the color type.
+     * 
+     * @return The name of the color type.
+     */
     public String getTypeName() {
       return this.colorTypeName;
     }
   }
 
+  /**
+   * Enum for the different colors.
+   */
   public enum Colors {
       // Solid Colors
       OFF       (ColorType.SOLIDCOLORS, "Off", 0.99),
@@ -147,25 +163,69 @@ public class BlinkenLightningConstants {
       public final String colorName;
       public final double colorValue;
 
+      /**
+       * Constructor for the Colors enum.
+       * 
+       * @param type The type of color.
+       * @param colorName The name of the color.
+       * @param colorValue The value of the color.
+       */
       Colors(ColorType type, String colorName, double colorValue) {
         this.type = type;
         this.colorName = colorName;
         this.colorValue = colorValue;
       } 
 
+      /**
+       * Gets the type of the color.
+       * 
+       * @return The type of the color.
+       */
       public ColorType getType() {
         return this.type;
       }
 
+      /**
+       * Gets the name of the color.
+       * 
+       * @return The name of the color.
+       */
       public String getColorName() {
         return this.colorName;
       }
 
+      /**
+       * Gets the value of the color.
+       * 
+       * @return The value of the color.
+       */
       public double getColorValue() {
         return this.colorValue;
       }
 
-      public List<Colors> getColorsByType(ColorType type) {
+      /**
+       * Gets the color by the name.
+       * 
+       * @param colorName The name of the color.
+       * @return The color.
+       */
+      public static Colors getColorByName(String colorName) {
+        for (Colors c : Colors.values()) {
+          if (c.getColorName().equals(colorName)) {
+            return c;
+          }
+        }
+
+        return Colors.OFF;
+      }
+
+      /**
+       * Gets the color by the value.
+       * 
+       * @param colorValue The value of the color.
+       * @return The color.
+       */
+      public static List<Colors> getColorsByType(ColorType type) {
         List<Colors> colors = new ArrayList<>();
         for (Colors c : Colors.values()) {
           if (c.getType() == type) {
@@ -175,6 +235,12 @@ public class BlinkenLightningConstants {
         return colors;
       }
       
+      /**
+       * Gets the color by the value.
+       * 
+       * @param colorValue The value of the color.
+       * @return The color.
+       */
       public static List<Colors> getColorsByTypeNames(List<String> colorTypeNames) {
           List<Colors> colorsOfTypes = new ArrayList<>();
           for (Colors color : Colors.values()) {

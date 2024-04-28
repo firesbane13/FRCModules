@@ -33,6 +33,7 @@
       "/Shuffleboard/DifferentialDrive/Right Back Motor": "Motor Controller",
       "/Shuffleboard/DifferentialDrive/Right Front Motor": "Motor Controller",
       "/Shuffleboard/DifferentialDrive/Robot Angle": "Gyro",
+      "/Shuffleboard/DifferentialDrive/field": "Field2d",
       "/Shuffleboard/Lighting/Color Selector": "String Chooser",
       "/SmartDashboard/Alliance": "String Chooser"
     }
@@ -60,7 +61,8 @@
               "open": true
             },
             "open": true
-          }
+          },
+          "open": true
         },
         "Lighting": {
           "Color Selector": {

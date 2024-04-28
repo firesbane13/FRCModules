@@ -5,12 +5,13 @@
 package frc.robot;
 
 import frc.lib.aupirates3291.constants.Ports.PORTLIST;
+import frc.lib.aupirates3291.helper.SystemIdentification;
 import frc.lib.aupirates3291.lib.subsystems.drivetrains.DifferentialDriveSubsystemV1;
 import frc.lib.aupirates3291.lib.subsystems.lighting.LightingSubsystem;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
@@ -21,17 +22,20 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  * subsystems, commands, and trigger mappings) should be declared here.
  */
 public class RobotContainer {
-  public DifferentialDriveSubsystemV1 driveSubsystem = new DifferentialDriveSubsystemV1();
-  public LightingSubsystem lightingSubsystem = new LightingSubsystem();
+  private DifferentialDriveSubsystemV1 driveSubsystem = new DifferentialDriveSubsystemV1();
+  private LightingSubsystem lightingSubsystem = new LightingSubsystem();
+  private SystemIdentification systemIdentification = new SystemIdentification();
 
   private SendableChooser<Command> chooser = new SendableChooser<>();
     
   // JOYSTICKS
-  private Joystick joystick00 = new Joystick(PORTLIST.PRIMARY_CONTROLLER.getPort());
-  private Joystick joystick01 = new Joystick(PORTLIST.SECONDARY_CONTROLLER.getPort());
+  private CommandJoystick controller00 = new CommandJoystick(PORTLIST.PRIMARY_CONTROLLER.getPort());
+  private CommandJoystick controller01 = new CommandJoystick(PORTLIST.SECONDARY_CONTROLLER.getPort());
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    lightingSubsystem.init();
+
     // Configure the trigger bindings
     configureBindings();
   }
@@ -48,12 +52,15 @@ public class RobotContainer {
   private void configureBindings() {
     // Configure the button bindings
 
+    // Configure the system identification buttons
+    controller00 = systemIdentification.configureBindings(controller00);
+
     driveSubsystem.setDefaultCommand(
       new RunCommand(
         () ->
         driveSubsystem.drive(
-          joystick00.getRawAxis(1),
-          joystick00.getRawAxis(5)
+          controller00.getRawAxis(1),
+          controller00.getRawAxis(5)
         ),
         driveSubsystem));
   }
@@ -66,5 +73,9 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
     return chooser.getSelected();
+  }
+
+  public DifferentialDriveSubsystemV1 getDriveSubsystem() {
+    return driveSubsystem;
   }
 }
